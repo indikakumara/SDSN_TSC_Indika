@@ -25,7 +25,7 @@ rule "admissionCheckV1"
   when
    $msg : RoleServiceMessage(operationName== "requestAssist", state=="admittable")
   then
-   actions.FixedThroughput("requestAssist","2,200",$msg);
+   actions.FixedThroughput("requestAssist","80,60",$msg);
    update($msg);
 end
 
@@ -33,7 +33,7 @@ rule "admissionCheckV2"
   when
    $msg : RoleServiceMessage(operationName== "requestAssist", state=="admittable")
   then
-   actions.FixedThroughput("requestAssist","157,20",$msg);
+   actions.FixedThroughput("requestAssist","157,120",$msg);
    update($msg);
 end
 
@@ -41,7 +41,7 @@ rule "admissionCheckV3"
   when
    $msg : RoleServiceMessage(operationName== "requestAssist", state=="admittable")
   then
-   actions.FixedThroughput("requestAssist","123,20",$msg);
+   actions.FixedThroughput("requestAssist","123,120",$msg);
    update($msg);
 end
 
